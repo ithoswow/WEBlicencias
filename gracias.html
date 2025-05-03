@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gracias por tu compra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      margin: auto;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .license {
+      font-size: 20px;
+      font-weight: bold;
+      color: green;
+      margin-top: 20px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>¡Gracias por tu compra!</h2>
+    <p>Tu licencia ha sido generada:</p>
+    <div class="license" id="license">Cargando licencia...</div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const paymentId = params.get("payment_id");
+
+    if (paymentId) {
+      fetch("https://TU_BACKEND_URL/license?payment_id=" + paymentId)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("license").textContent = data.license || "No se encontró una licencia.";
+        })
+        .catch(err => {
+          console.error("Error al obtener la licencia:", err);
+          document.getElementById("license").textContent = "Hubo un error al cargar la licencia.";
+        });
+    } else {
+      document.getElementById("license").textContent = "No se encontró un ID de pago válido.";
+    }
+  </script>
+</body>
+</html>

@@ -3,17 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Comprar Licencia - Threads Autoposter</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENTE_ID_PAYPAL&currency=USD"></script>
+  <title>Comprar Licencia para Extensión de Threads</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Comprar Licencia</h1>
-    <p>Una licencia válida por 1 mes. Precio: <strong>USD $5.00</strong></p>
-    <div id="paypal-button-container"></div>
-    <p id="status"></p>
+  <h1>Extensión para Threads</h1>
+  <p>Compra tu licencia por solo <strong>$5 USD</strong></p>
+
+  <div id="payment-options">
+    <button id="paypal-button">Pagar con PayPal</button>
+    <form id="epayco-form" method="POST" action="https://checkout.epayco.co/checkout.php">
+      <input type="hidden" name="public_key" value="AQUI_TU_PUBLIC_KEY_DE_EPAYCO">
+      <input type="hidden" name="amount" value="5">
+      <input type="hidden" name="name" value="Licencia Threads Extension">
+      <input type="hidden" name="description" value="Licencia por 1 mes">
+      <input type="hidden" name="currency" value="USD">
+      <input type="hidden" name="external" value="false">
+      <input type="hidden" name="response" value="https://TUSITIO.com/success.html">
+      <input type="hidden" name="confirmation" value="https://TUSITIO.com/api/confirmacion">
+      <button type="submit">Pagar con PSE (ePayco)</button>
+    </form>
   </div>
+
+  <div id="status"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

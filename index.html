@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Comprar Licencia para Extensión de Threads</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Licencia - Extensión Threads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            margin: auto;
+            border-radius: 10px;
+            max-width: 400px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .paypal-btn {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Extensión para Threads</h1>
-  <p>Compra tu licencia por solo <strong>$5 USD</strong></p>
+    <div class="container">
+        <h1>Compra tu Licencia</h1>
+        <p>Extensión para publicar automáticamente en Threads</p>
+        <p><strong>Precio: $5.00 USD</strong></p>
 
-  <div id="payment-options">
-    <button id="paypal-button">Pagar con PayPal</button>
-    <form id="epayco-form" method="POST" action="https://checkout.epayco.co/checkout.php">
-      <input type="hidden" name="public_key" value="AQUI_TU_PUBLIC_KEY_DE_EPAYCO">
-      <input type="hidden" name="amount" value="5">
-      <input type="hidden" name="name" value="Licencia Threads Extension">
-      <input type="hidden" name="description" value="Licencia por 1 mes">
-      <input type="hidden" name="currency" value="USD">
-      <input type="hidden" name="external" value="false">
-      <input type="hidden" name="response" value="https://TUSITIO.com/success.html">
-      <input type="hidden" name="confirmation" value="https://TUSITIO.com/api/confirmacion">
-      <button type="submit">Pagar con PSE (ePayco)</button>
-    </form>
-  </div>
-
-  <div id="status"></div>
-
-  <script src="script.js"></script>
+        <div class="paypal-btn">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="andresc997@gmail.com">
+                <input type="hidden" name="item_name" value="Licencia Threads">
+                <input type="hidden" name="amount" value="5.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="Pagar con PayPal">
+                <img alt="" border="0" src="https://www.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
